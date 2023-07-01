@@ -1,8 +1,54 @@
-<h1>Wikinimus</h1>
-<div>
-    <% @articles.each do |article|  %>
-    <h2> <%= link_to article.title, article_path(article) %> </h2>
-    <h3> <%= article.content  %> </h3>
-    <% end %>
-</div>
-<h2> <%= link_to 'Create a new article', new_article_path %> </h2>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Wikinimus</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/articles">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/articles/new"> New Article </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <br>
+  <br>
+  <br>
+  <div class="container marketing">
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <% @articles.each do |article|  %>
+      <div class="col-md-7">
+        <h2 class="featurette-heading"><span class="text-muted"> <%= link_to article.title, article_path(article) %> </span></h2>
+        <p class="lead"> <%= article.content  %> </p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #181a1c;"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #98938a;">500x500</text></svg>
+      </div>
+      <% end %>
+    </div>
+    <hr class="featurette-divider">
+  </div>
+  <hr class="featurette-divider">
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+  </footer>
+</main>

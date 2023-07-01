@@ -13,7 +13,7 @@ puts 'Creating 10 articles...'
 10.times do
   article = Article.create!(
     title: Faker::Book.title,
-    content: Faker::Lorem.paragraph
+    content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
   )
   puts "#{article} created!"
 end
